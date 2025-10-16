@@ -6,7 +6,10 @@
 
 
 
-## Schema
+### Logic for Identifying Stock Transfers:
+This query identifies overstock bookings by isolating two corresponding entries in the transaction log and joining them using the LOCAL_TRANSACTION_ID. Each stock transfer consists of two components:
+    - The Source (Booking-Out): This entry represents the item being removed from its original location. It is always identified by a quantity of -1.
+    - The Target (Booking-In): This entry repr
 
 ```sql
 WITH
